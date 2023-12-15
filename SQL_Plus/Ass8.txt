@@ -1,0 +1,126 @@
+SQL> CREATE TABLE DEPARTMENT
+  2  (DEPT_NO NUMBER(2)CONSTRAINT P_KEY_DEPT1 PRIMARY KEY,
+  3  DEPT_NAME VARCHAR2(15)CONSTRAINT DEPT_UNI UNIQUE,
+  4  LOCATION NUMBER(3));
+
+Table created.
+
+SQL> CREATE TABLE EMPLOYEE(
+  2  
+SQL> CREATE TABLE EMPLOYEE(
+  2  EMP_ID NUMBER(4) CONSTRAINT P_KEY_EMP1 PRIMARY KEY,
+  3  EMP_NAME VARCHAR2(12),
+  4  BIRTH_DATE DATE CONSTRAINT CHECK_BD CHECK(BIRTH_DATE LIKE '[0-32]-[0-12]-[2005-2023]');
+BIRTH_DATE DATE CONSTRAINT CHECK_BD CHECK(BIRTH_DATE LIKE '[0-32]-[0-12]-[2005-2023]')
+                                                                                     *
+ERROR at line 4:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE EMPLOYEE(
+  2  BIRTH_DATE DATE CONSTRAINT CHECK_BD CHECK(BIRTH_DATE LIKE '[0-32]-[0-12]-[2005-2023]');
+BIRTH_DATE DATE CONSTRAINT CHECK_BD CHECK(BIRTH_DATE LIKE '[0-32]-[0-12]-[2005-2023]')
+                                                                                     *
+ERROR at line 2:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE EMPLOYEE(
+  2  BIRTH_DATE DATE CONSTRAINT CHECK_BD CHECK(BIRTH_DATE LIKE '[0-32]-[0-12]-[2005-2023]');
+BIRTH_DATE DATE CONSTRAINT CHECK_BD CHECK(BIRTH_DATE LIKE '[0-32]-[0-12]-[2005-2023]')
+                                                                                     *
+ERROR at line 2:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE EMPLOYEE(
+  2  BIRTH_DATE DATE CONSTRAINT CHECK_BD CHECK(BIRTH_DATE LIKE '[0-32]-[0-12]-[2005-2023]'));
+
+Table created.
+
+SQL> INSERT INTO EMPLOYEE VALUES('12-10-2004
+  2  );
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> INSERT INTO EMPLOYEE VALUES('12-10-2006');
+INSERT INTO EMPLOYEE VALUES('12-10-2006')
+                            *
+ERROR at line 1:
+ORA-01843: not a valid month 
+
+
+SQL> INSERT INTO EMPLOYEE VALUES('12-oct-2006');
+INSERT INTO EMPLOYEE VALUES('12-oct-2006')
+*
+ERROR at line 1:
+ORA-02290: check constraint (VIVEK.CHECK_BD) violated 
+
+
+SQL> INSERT INTO EMPLOYEE VALUES('12-10-2006');
+INSERT INTO EMPLOYEE VALUES('12-10-2006')
+                            *
+ERROR at line 1:
+ORA-01843: not a valid month 
+
+
+SQL> INSERT INTO EMPLOYEE VALUES('12-OCT-2006');
+INSERT INTO EMPLOYEE VALUES('12-OCT-2006')
+*
+ERROR at line 1:
+ORA-02290: check constraint (VIVEK.CHECK_BD) violated 
+
+
+SQL> DROP TABLE EMPLOYEE;
+
+Table dropped.
+
+SQL> CREATE TABLE EMPLOYEE(
+  2  BIRTH_DATE DATE CONSTRAINT CHECK_BD CHECK(BIRTH_DATE LIKE '[0-32]-[JANUARY-DECEMBER]-[1950-2005]'));
+
+Table created.
+
+SQL> INSERT INTO EMPLOYEE VALUES('12-OCT-2006');
+INSERT INTO EMPLOYEE VALUES('12-OCT-2006')
+*
+ERROR at line 1:
+ORA-02290: check constraint (VIVEK.CHECK_BD) violated 
+
+
+SQL> INSERT INTO EMPLOYEE VALUES('12-OCT-2004');
+INSERT INTO EMPLOYEE VALUES('12-OCT-2004')
+*
+ERROR at line 1:
+ORA-02290: check constraint (VIVEK.CHECK_BD) violated 
+
+
+SQL> INSERT INTO EMPLOYEE VALUES('12-OCTOBER-2006');
+INSERT INTO EMPLOYEE VALUES('12-OCTOBER-2006')
+*
+ERROR at line 1:
+ORA-02290: check constraint (VIVEK.CHECK_BD) violated 
+
+
+SQL> DROP TABLE EMPLOYEE;
+
+Table dropped.
+
+SQL> CREATE TABLE EMPLOYEE(
+  2  BIRTH_DATE DATE CONSTRAINT CHECK_BD CHECK(BIRTH_DATE LIKE '[1947-2005]-[0-12]-[0-31]'));
+
+Table created.
+
+SQL> INSERT INTO EMPLOYEE VALUES('2004-01-20');
+INSERT INTO EMPLOYEE VALUES('2004-01-20')
+                            *
+ERROR at line 1:
+ORA-01861: literal does not match format string 
+
+
+SQL> DESC EMPLOYEE;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BIRTH_DATE                                         DATE
+
+SQL> EXIT
