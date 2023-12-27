@@ -1,0 +1,22 @@
+<?php
+$link = mysqli_connect("localhost","root","","vivek");
+//Check Connetion
+if($link === false)
+{
+	die("ERROR : Could Not Connect.".mysqli_connect_error());
+}
+
+//Attemp Insert Query Execution
+$sql = "UPDATE feedback SET EMAIL='kohli@gmail.com' WHERE LASTNAME='KOHLI'";
+
+if (mysqli_query($link,$sql))
+{
+	 echo "Records Updated Successfully...";
+}
+else
+{
+	echo "ERROR : Could Not Able To Execute $sql.".mysqli_error($link);
+}
+//Close Connection
+mysqli_close($link);
+?>
