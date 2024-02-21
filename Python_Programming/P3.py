@@ -2,7 +2,7 @@
 
 Android = float(input("Enter Android Subject Marks : "))
 Python = float(input("Enter Python Subject Marks : "))
-DAV = float(input("Enter DAV Marks : "))
+DAV = float(input("Enter DAV Subject Marks : "))
 CN = float(input("Enter Computer Network Subject Marks : "))
 
 Total = Android+Python+DAV+CN
