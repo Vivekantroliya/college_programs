@@ -1,6 +1,7 @@
 # 8. Write a program to prompt users to enter an age; then check 
 # whether each person is a child, a teenager, an adult, or a senior. 
-# Display a proper message.
+# Display a proper message.
+
 
 Age = float(input("Enter Your Age : "))
 
