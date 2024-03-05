@@ -1,4 +1,4 @@
-# 8. Write a Python program to perform following operation on given string input:
+# 8.Write a Python program to perform following operation on given string input:
 # a) Count Number of Vowel in given string
 # b) Count Length of string (donot use len() )
 # c) Reverse string
