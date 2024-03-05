@@ -12,5 +12,5 @@ for i in lst:
     if i%2==0:
         lst.remove(i)
 
-print("Your Entered Odd Numers :",lst)
+print("Your Entered Odd Numbers :",lst)
 print("Largest Odd Number Is",max(lst))

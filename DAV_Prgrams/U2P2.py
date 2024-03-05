@@ -4,16 +4,31 @@
 # inside the text file and then find the keyword with a highest repeated number.
 # The program should display both the keywords dictionary and the most repeated word.
 
-file = open("abc.txt",'r')
+from collections import Counter
 
-data = file.read()
+file = open("abc.txt",'w+')
 
-print(data)
+file.write("I Am Vivek \nI Am Student Of Marwadi University")
 
-count = 0
+file.seek(0)
 
-for i in data:
-    if i == 'Apple':
-        count += 1
+text = file.read()
 
-print(count)
+print("File Read...")
+print(text)
+
+data = text.split()
+
+# Create a dictionary of words and their counts using the Counter function
+count = Counter(data)
+
+# Find the word with the highest count
+Common = count.most_common(1)[0][0]
+
+# Print the dictionary of words and their counts
+print("All Words And Their Counts :",count)
+
+# Print the most common word
+print("Most Common Word In File :",Common)
+
+file.close()

@@ -50,4 +50,4 @@ print("'i' Is Replaced With 'a' And New String Is",string.replace('i','a'))
 if string == string[::-1]:
     print(string,"Is Palindrome.")
 else:
-    print(sring,"Is Not Palindrome.")
+    print(string,"Is Not Palindrome.")
