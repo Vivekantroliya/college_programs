@@ -27,4 +27,4 @@ multi = lambda a,b : a*b
 
 reduce_lst = reduce(multi,lst)
 
-print("Variable After Using 'filter()' Function :",reduce_lst)
+print("Variable After Using 'reduce()' Function :",reduce_lst)
