@@ -10,6 +10,7 @@ import csv
 
 def addStudent(Roll_No, Student_Name, City):
     with open('student.csv','r+',newline='') as std:
+        std.seek(0)
         if std.readline() == "Roll_No,Student_Name,City\n":
             pass
         else:
